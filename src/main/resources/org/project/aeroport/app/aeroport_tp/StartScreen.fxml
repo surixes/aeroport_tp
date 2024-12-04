@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.StartScreenController">
+    <Text text="Добро пожаловать в Систему Управления Аэропортом" layoutX="50" layoutY="100" wrappingWidth="500" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+    <Button text="Начать работу" layoutX="200" layoutY="200" prefWidth="200" onAction="#onStartButtonClick"/>
+</AnchorPane>
