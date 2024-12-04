@@ -14,5 +14,5 @@
 
     <!-- Align buttons to the left and place them side by side -->
     <Button text="Войти" onAction="#handleLogin" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="LEFT" />
-    <Button text="Назад" onAction="#handleBack" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
+    <Button text="Назад" onAction="#handleBack" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="RIGHT"  />
 </GridPane>

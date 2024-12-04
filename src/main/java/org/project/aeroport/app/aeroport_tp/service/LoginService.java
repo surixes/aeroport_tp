@@ -6,13 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginService {
-
-    // Метод для проверки, является ли пользователь администратором
     public static boolean isAdmin(String username, String password) {
-        String query = "SELECT username, password FROM administrators WHERE username = ? AND password = ?";
+        String AdminQuery = "SELECT username, password FROM administrators WHERE username = ? AND password = ?";
 
         try (Connection conn = DatabaseService.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+             PreparedStatement stmt = conn.prepareStatement(AdminQuery)) {
 
             stmt.setString(1, username);
             stmt.setString(2, password);
@@ -26,10 +24,10 @@ public class LoginService {
     }
 
     public static boolean isWorker(String username, String password) {
-        String query = "SELECT username, password FROM worker WHERE username = ? AND password = ?";
+        String WorkerQuery = "SELECT username, password FROM worker WHERE username = ? AND password = ?";
 
         try (Connection conn = DatabaseService.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+             PreparedStatement stmt = conn.prepareStatement(WorkerQuery)) {
 
             stmt.setString(1, username);
             stmt.setString(2, password);

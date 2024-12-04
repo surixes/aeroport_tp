@@ -4,7 +4,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.StartScreenController">
-    <Text text="Добро пожаловать в Систему Управления Аэропортом" layoutX="50" layoutY="100" wrappingWidth="500" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-    <Button text="Начать работу" layoutX="200" layoutY="200" prefWidth="200" onAction="#onStartButtonClick"/>
-</AnchorPane>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:controller="org.project.aeroport.app.aeroport_tp.controller.StartScreenController"
+          xmlns:fx="http://javafx.com/fxml/1"
+          alignment="center" vgap="10" hgap="5">
+    <Text text="Добро пожаловать в Систему Управления Аэропортом" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-size: 25px;"/>
+
+    <!-- Align buttons to the left and place them side by side -->
+    <Button text="Начать работу" onAction="#onStartButtonClick" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="CENTER" />
+</GridPane>
+

@@ -9,7 +9,7 @@
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.AdminScreenController" alignment="CENTER" spacing="10">
     <Label text="Панель администратора" style="-fx-font-size: 18px;"/>
     <Button text="Управление работниками" onAction="#onManageUsers"/>
-    <Button text="Управление расписанием" onAction="#onManageSchedule"/>
+    <Button text="Управление рейсами" onAction="#onManageSchedule"/>
     <Button text="Просмотр статистики" onAction="#onViewStats"/>
     <Button text="Назад" onAction="#onBack"/>
 </VBox>

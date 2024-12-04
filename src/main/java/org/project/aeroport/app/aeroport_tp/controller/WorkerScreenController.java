@@ -1,10 +1,8 @@
 package org.project.aeroport.app.aeroport_tp.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import java.io.IOException;
+
+import static org.project.aeroport.app.aeroport_tp.Help.loadScreen;
 
 public class WorkerScreenController {
 
@@ -23,16 +21,5 @@ public class WorkerScreenController {
     @FXML
     private void onBack() {
         loadScreen("/UserSelectionScreen.fxml", "Выбор роли");
-    }
-
-    private void loadScreen(String fxmlFile, String title) {
-        try {
-            Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource(fxmlFile)));
-            stage.setTitle(title);
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

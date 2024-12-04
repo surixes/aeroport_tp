@@ -11,6 +11,6 @@
           alignment="center" vgap="10" hgap="10">
     <TextField fx:id="usernameField" promptText="Имя пользователя" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
     <PasswordField fx:id="passwordField" promptText="Пароль" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <Button text="Войти" onAction="#handleLogin" GridPane.rowIndex="2" GridPane.columnIndex="0" />
-    <Button text="Назад" onAction="#handleBack" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    <Button text="Войти" onAction="#handleLogin" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="LEFT"/>
+    <Button text="Назад" onAction="#handleBack" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="RIGHT"/>
 </GridPane>

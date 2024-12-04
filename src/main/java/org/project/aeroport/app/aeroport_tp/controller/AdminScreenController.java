@@ -1,23 +1,24 @@
 package org.project.aeroport.app.aeroport_tp.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
+
 import java.io.IOException;
+
+import static org.project.aeroport.app.aeroport_tp.Help.loadScreen;
 
 public class AdminScreenController {
 
     @FXML
     private void onManageUsers() {
-        System.out.println("Открыть управление пользователями...");
-        // Реализация управления пользователями
+        loadScreen("/AdminManagesWorkers.fxml", "Управление работниками");
     }
 
     @FXML
     private void onManageSchedule() {
-        System.out.println("Открыть управление расписанием...");
-        // Реализация управления расписанием
+        loadScreen("/AdminManagesFlight.fxml", "Управление рейсами");
     }
 
     @FXML
@@ -29,16 +30,5 @@ public class AdminScreenController {
     @FXML
     private void onBack() {
         loadScreen("/UserSelectionScreen.fxml", "Выбор роли");
-    }
-
-    private void loadScreen(String fxmlFile, String title) {
-        try {
-            Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource(fxmlFile)));
-            stage.setTitle(title);
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
