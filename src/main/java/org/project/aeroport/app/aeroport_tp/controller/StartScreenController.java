@@ -10,8 +10,8 @@ public class StartScreenController {
     public void onStartButtonClick(ActionEvent event) {
         try {
             // Открываем окно выбора пользователя
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UserSelectionScreen.fxml"));
-            Scene scene = new Scene(loader.load(), 600, 400);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UserSelectionScreen.fxml"));
+            Scene scene = new Scene(loader.load(), 1200, 800);
 
             // Получаем текущее окно и задаем новую сцену
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

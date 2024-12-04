@@ -6,9 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.WorkerScreenController" alignment="CENTER" spacing="10">
+    <Label text="Панель работника" style="-fx-font-size: 18px;"/>
+    <Button text="Регистрация рейсов" onAction="#onRegisterFlights"/>
+    <Button text="Работа с расписанием" onAction="#onWorkWithSchedule"/>
+    <Button text="Назад" onAction="#onBack"/>
+</VBox>
 
-</AnchorPane>

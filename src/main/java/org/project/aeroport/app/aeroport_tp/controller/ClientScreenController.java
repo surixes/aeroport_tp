@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
-public class UserScreenController {
+public class ClientScreenController {
 
     @FXML
     private void onSearchFlights() {
@@ -22,7 +22,7 @@ public class UserScreenController {
 
     @FXML
     private void onBack() {
-        loadScreen("StartScreen.fxml", "Выбор роли");
+        loadScreen("/UserSelectionScreen.fxml", "Выбор роли");
     }
 
     private void loadScreen(String fxmlFile, String title) {

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Pos?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<GridPane fx:controller="org.project.aeroport.app.aeroport_tp.controller.AdminLoginController"
+          xmlns:fx="http://javafx.com/fxml/1"
+          alignment="center" vgap="10" hgap="5">
+    <TextField fx:id="usernameField" promptText="Имя пользователя" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <PasswordField fx:id="passwordField" promptText="Пароль" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
 
-</AnchorPane>
+    <!-- Align buttons to the left and place them side by side -->
+    <Button text="Войти" onAction="#handleLogin" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="LEFT" />
+    <Button text="Назад" onAction="#handleBack" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
+</GridPane>

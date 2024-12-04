@@ -1,4 +1,4 @@
-package org.project.aeroport.app.aeroport_tp;
+package org.project.aeroport.app.aeroport_tp.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,13 +11,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             // Загрузка стартового экрана
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("StartScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/StartScreen.fxml"));
             Scene scene = new Scene(loader.load(), 1200, 800);
 
             // Настройка окна
             primaryStage.setTitle("Airport Management System");
             primaryStage.setScene(scene);
-            primaryStage.setResizable(false); // Запрет изменения размера окна
+            primaryStage.setResizable(true); // Запрет изменения размера окна
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

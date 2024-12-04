@@ -12,7 +12,7 @@ import org.project.aeroport.app.aeroport_tp.service.LoginService;
 
 import java.io.IOException;
 
-public class LoginController {
+public class AdminLoginController {
 
     @FXML
     private TextField usernameField;  // Поле для имени пользователя
@@ -26,7 +26,7 @@ public class LoginController {
         String password = passwordField.getText();
 
         // Проверка учетных данных
-        if (LoginService.authenticateUser(username, password)) {
+        if (LoginService.isAdmin(username, password)) {
             showAlert("Успех", "Вы успешно вошли!", AlertType.INFORMATION);
             loadScreen("/AdminScreen.fxml", "Выбор действия");
             // Открытие основного окна или переход на другой экран
@@ -34,6 +34,11 @@ public class LoginController {
         } else {
             showAlert("Ошибка", "Неверное имя пользователя или пароль.", AlertType.ERROR);
         }
+    }
+
+    @FXML
+    private void handleBack() {
+        loadScreen("/UserSelectionScreen.fxml", "Выбор роли");
     }
 
     // Метод для отображения всплывающих сообщений
