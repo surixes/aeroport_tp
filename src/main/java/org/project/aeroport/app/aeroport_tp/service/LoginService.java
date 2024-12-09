@@ -20,7 +20,7 @@ public class LoginService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;  // Если пользователь не найден или роль не администратор
+        return false;
     }
 
     public static boolean isWorker(String username, String password) {
@@ -40,4 +40,25 @@ public class LoginService {
         return false;
     }
 
+
+    public static String getWorkerRole(String username, String password) {
+        String query = "SELECT position FROM worker WHERE username = ? AND password = ?";
+
+        try (Connection conn = DatabaseService.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("position");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

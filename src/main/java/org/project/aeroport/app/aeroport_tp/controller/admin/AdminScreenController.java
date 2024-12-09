@@ -1,11 +1,6 @@
-package org.project.aeroport.app.aeroport_tp.controller;
+package org.project.aeroport.app.aeroport_tp.controller.admin;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 import static org.project.aeroport.app.aeroport_tp.Help.loadScreen;
 
@@ -22,9 +17,8 @@ public class AdminScreenController {
     }
 
     @FXML
-    private void onViewStats() {
-        System.out.println("Открыть просмотр статистики...");
-        // Реализация статистики
+    private void onManageTickers() {
+        loadScreen("/AdminManagesTickets.fxml", "Управление билетами");
     }
 
     @FXML

@@ -4,9 +4,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.geometry.Pos?>
 
-<GridPane fx:controller="org.project.aeroport.app.aeroport_tp.controller.AdminLoginController"
+<GridPane fx:controller="org.project.aeroport.app.aeroport_tp.controller.worker.WorkerLoginController"
           xmlns:fx="http://javafx.com/fxml/1"
           alignment="center" vgap="10" hgap="10">
     <TextField fx:id="usernameField" promptText="Имя пользователя" GridPane.rowIndex="0" GridPane.columnIndex="0"/>

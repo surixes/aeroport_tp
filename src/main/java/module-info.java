@@ -19,4 +19,11 @@ module org.project.aeroport.app.aeroport_tp {
     opens org.project.aeroport.app.aeroport_tp.app to javafx.fxml;
     exports org.project.aeroport.app.aeroport_tp.controller;
     opens org.project.aeroport.app.aeroport_tp.controller to javafx.fxml;
+    opens org.project.aeroport.app.aeroport_tp.model to javafx.base;
+    exports org.project.aeroport.app.aeroport_tp.controller.admin;
+    opens org.project.aeroport.app.aeroport_tp.controller.admin to javafx.fxml;
+    exports org.project.aeroport.app.aeroport_tp.controller.worker;
+    opens org.project.aeroport.app.aeroport_tp.controller.worker to javafx.fxml;
+    exports org.project.aeroport.app.aeroport_tp.controller.client;
+    opens org.project.aeroport.app.aeroport_tp.controller.client to javafx.fxml;
 }

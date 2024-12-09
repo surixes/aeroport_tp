@@ -1,4 +1,4 @@
-package org.project.aeroport.app.aeroport_tp.controller;
+package org.project.aeroport.app.aeroport_tp.controller.admin;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

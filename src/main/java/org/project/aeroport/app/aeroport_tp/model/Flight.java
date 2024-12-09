@@ -19,7 +19,6 @@ public class Flight {
         this.price = price;
     }
 
-    // Getters and setters
     public int getFlightId() {
         return flightId;
     }

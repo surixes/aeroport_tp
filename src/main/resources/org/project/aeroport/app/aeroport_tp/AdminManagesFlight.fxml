@@ -2,19 +2,18 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.AdminManagesFlightController" spacing="10" alignment="TOP_CENTER">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.admin.AdminManagesFlightController" spacing="10" alignment="TOP_CENTER">
     <Label text="Управление рейсами" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
 
-    <TableView fx:id="flightsTable" prefWidth="600">
+    <TableView fx:id="flightTable" prefWidth="600">
         <columns>
-            <TableColumn text="ID" fx:id="columnFlightId" prefWidth="50"/>
-            <TableColumn text="Город отправления" fx:id="columnDepartureCity" prefWidth="150"/>
-            <TableColumn text="Город прибытия" fx:id="columnArrivalCity" prefWidth="150"/>
-            <TableColumn text="Время отправления" fx:id="columnDepartureTime" prefWidth="150"/>
-            <TableColumn text="Время прибытия" fx:id="columnArrivalTime" prefWidth="150"/>
-            <TableColumn text="Цена" fx:id="columnPrice" prefWidth="100"/>
+            <TableColumn text="ID" fx:id="flightIdColumn" prefWidth="50"/>
+            <TableColumn text="Город отправления" fx:id="departureCityColumn" prefWidth="150"/>
+            <TableColumn text="Город прибытия" fx:id="arrivalCityColumn" prefWidth="150"/>
+            <TableColumn text="Время отправления" fx:id="departureTimeColumn" prefWidth="150"/>
+            <TableColumn text="Время прибытия" fx:id="arrivalTimeColumn" prefWidth="150"/>
+            <TableColumn text="Цена" fx:id="priceColumn" prefWidth="100"/>
         </columns>
     </TableView>
 
@@ -22,5 +21,7 @@
         <Button text="Добавить рейс" fx:id="btnAddFlight" onAction="#handleAddFlight" />
         <Button text="Изменить рейс" fx:id="btnEditFlight" onAction="#handleEditFlight" />
         <Button text="Удалить рейс" fx:id="btnDeleteFlight" onAction="#handleDeleteFlight" />
+        <Button text="Обновить" fx:id="btnUpdateFlight" onAction="#handleUpdate" />
+        <Button text="Назад" fx:id="btnBack" onAction="#handleBack" />
     </HBox>
 </VBox>

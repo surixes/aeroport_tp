@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.client.SearchFlightsController" spacing="10" alignment="CENTER">
+    <Label text="Поиск рейсов" style="-fx-font-size: 18px;"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Город отправления:"/>
+        <TextField fx:id="departureCityField" promptText="Введите город"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Город прибытия:"/>
+        <TextField fx:id="arrivalCityField" promptText="Введите город"/>
+    </HBox>
+    <Button text="Найти" onAction="#onSearch"/>
+    <TableView fx:id="flightsTable" prefHeight="200">
+        <columns>
+            <TableColumn text="Город отправления" fx:id="departureCityColumn"/>
+            <TableColumn text="Город прибытия" fx:id="arrivalCityColumn"/>
+            <TableColumn text="Время отправления" fx:id="departureTimeColumn"/>
+            <TableColumn text="Время прибытия" fx:id="arrivalTimeColumn"/>
+            <TableColumn text="Цена" fx:id="priceColumn"/>
+        </columns>
+    </TableView>
+    <Button text="Назад" onAction="#onBack"/>
+</VBox>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.project.aeroport.app.aeroport_tp.controller.client.ViewTicketsController"
+      spacing="10" alignment="CENTER">
+    <Label text="Введите паспортные данные:"/>
+    <TextField fx:id="passportField"/>
+    <Button text="Просмотреть билеты" onAction="#onViewTickets"/>
+    <Button text="Назад" fx:id="btnBack" onAction="#handleBack" />
+    <TextArea fx:id="ticketsArea" editable="false" prefHeight="200" prefWidth="400"/>
+</VBox>

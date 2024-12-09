@@ -1,4 +1,4 @@
-package org.project.aeroport.app.aeroport_tp.controller;
+package org.project.aeroport.app.aeroport_tp.controller.client;
 
 import javafx.fxml.FXML;
 
@@ -8,14 +8,17 @@ public class ClientScreenController {
 
     @FXML
     private void onSearchFlights() {
-        System.out.println("Поиск рейсов...");
-        // Реализация поиска рейсов
+        loadScreen("/SearchFlightsScreen.fxml", "Поиск рейсов");
     }
 
     @FXML
     private void onBookTickets() {
-        System.out.println("Бронирование билетов...");
-        // Реализация бронирования билетов
+        loadScreen("/BookTicketsScreen.fxml", "Бронирование билетов");
+    }
+
+    @FXML
+    private void onViewMyTickets() {
+        loadScreen("/SearchTickets.fxml", "Мои билеты");
     }
 
     @FXML

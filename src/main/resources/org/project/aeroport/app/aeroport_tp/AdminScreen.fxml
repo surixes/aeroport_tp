@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.AdminScreenController" alignment="CENTER" spacing="10">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.admin.AdminScreenController" alignment="CENTER" spacing="10">
     <Label text="Панель администратора" style="-fx-font-size: 18px;"/>
     <Button text="Управление работниками" onAction="#onManageUsers"/>
     <Button text="Управление рейсами" onAction="#onManageSchedule"/>
-    <Button text="Просмотр статистики" onAction="#onViewStats"/>
+    <Button text="Управление билетами" onAction="#onManageTickers"/>
     <Button text="Назад" onAction="#onBack"/>
 </VBox>
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.aeroport.app.aeroport_tp.controller.worker.BorderOfficerController">
+    <Label text="Проверка паспорта" />
+    <TextField fx:id="passportNumberField" promptText="Введите номер паспорта" />
+    <ChoiceBox fx:id="verificationResultBox" />
+    <Button text="Проверить" onAction="#checkPassport" />
+    <Button text="Назад" onAction="#handleBack" />
+</VBox>

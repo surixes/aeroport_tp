@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.ClientScreenController" alignment="CENTER" spacing="10">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.project.aeroport.app.aeroport_tp.controller.client.ClientScreenController" alignment="CENTER" spacing="10">
     <Label text="Добро пожаловать!" style="-fx-font-size: 18px;"/>
     <Button text="Поиск рейсов" onAction="#onSearchFlights"/>
     <Button text="Бронирование билетов" onAction="#onBookTickets"/>
+    <Button text="Мои билеты" onAction="#onViewMyTickets"/>
     <Button text="Назад" onAction="#onBack"/>
 </VBox>
 
