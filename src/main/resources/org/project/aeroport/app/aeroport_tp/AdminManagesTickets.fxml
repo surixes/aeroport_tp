@@ -1,9 +1,10 @@
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+
 <VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.project.aeroport.app.aeroport_tp.controller.admin.AdminManagesTicketsController">
     <Label text="Управление билетами" style="-fx-font-size: 18px;" />
@@ -12,6 +13,7 @@
         <columns>
             <TableColumn fx:id="ticketIdColumn" text="ID билета" />
             <TableColumn fx:id="clientNameColumn" text="Клиент" />
+            <TableColumn fx:id="clientPassportDataColumn" text="Паспортные данные" />
             <TableColumn fx:id="seatNumberColumn" text="Номер места" />
             <TableColumn fx:id="flightInfoColumn" text="Рейс" />
             <TableColumn fx:id="statusColumn" text="Статус" />
