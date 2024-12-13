@@ -6,14 +6,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import org.project.aeroport.app.aeroport_tp.LocalTimeSpinnerValueFactory;
 import org.project.aeroport.app.aeroport_tp.model.Flight;
 import org.project.aeroport.app.aeroport_tp.service.DatabaseService;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 
 import static org.project.aeroport.app.aeroport_tp.Help.loadScreen;
+import static org.project.aeroport.app.aeroport_tp.LocalTimeSpinnerValueFactory.configureTimeSpinner;
 
 public class AdminManagesFlightController {
     @FXML
@@ -182,11 +185,19 @@ public class AdminManagesFlightController {
         TextField arrivalCityField = new TextField(selectedFlight.getArrivalCity());
         arrivalCityField.setPromptText("Город прибытия");
 
-        DatePicker departureTimeField = new DatePicker();
-        departureTimeField.setPromptText("Дата и время отправления");
+        DatePicker departureDatePicker = new DatePicker(selectedFlight.getDepartureTime().toLocalDateTime().toLocalDate());
+        DatePicker arrivalDatePicker = new DatePicker(selectedFlight.getArrivalTime().toLocalDateTime().toLocalDate());
 
-        DatePicker arrivalTimeField = new DatePicker();
-        arrivalTimeField.setPromptText("Дата и время прибытия");
+        Spinner<LocalTime> departureTimeSpinner = new Spinner<>();
+        departureTimeSpinner.setValueFactory(new LocalTimeSpinnerValueFactory(LocalTime.MIN, LocalTime.MAX, 1));
+        configureTimeSpinner(departureTimeSpinner);
+        departureTimeSpinner.getValueFactory().setValue(selectedFlight.getDepartureTime().toLocalDateTime().toLocalTime());
+
+        Spinner<LocalTime> arrivalTimeSpinner = new Spinner<>();
+        arrivalTimeSpinner.setValueFactory(new LocalTimeSpinnerValueFactory(LocalTime.MIN, LocalTime.MAX, 1));
+        configureTimeSpinner(arrivalTimeSpinner);
+        arrivalTimeSpinner.getValueFactory().setValue(selectedFlight.getArrivalTime().toLocalDateTime().toLocalTime());
+
 
 
         TextField priceField = new TextField(String.valueOf(selectedFlight.getPrice()));
@@ -196,27 +207,37 @@ public class AdminManagesFlightController {
         grid.add(departureCityField, 1, 0);
         grid.add(new Label("Город прибытия:"), 0, 1);
         grid.add(arrivalCityField, 1, 1);
-        grid.add(new Label("Дата и время отправления:"), 0, 2);
-        grid.add(departureTimeField, 1, 2);
-        grid.add(new Label("Дата и время прибытия:"), 0, 3);
-        grid.add(arrivalTimeField, 1, 3);
-        grid.add(new Label("Цена:"), 0, 4);
-        grid.add(priceField, 1, 4);
+        grid.add(new Label("Дата отправления:"), 0, 2);
+        grid.add(departureDatePicker, 1, 2);
+        grid.add(new Label("Время отправления:"), 0, 3);
+        grid.add(departureTimeSpinner, 1, 3);
+        grid.add(new Label("Дата прибытия:"), 0, 4);
+        grid.add(arrivalDatePicker, 1, 4);
+        grid.add(new Label("Время прибытия:"), 0, 5);
+        grid.add(arrivalTimeSpinner, 1, 5);
+        grid.add(new Label("Цена:"), 0, 6);
+        grid.add(priceField, 1, 6);
 
         dialog.getDialogPane().setContent(grid);
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == updateButtonType) {
-                String departureCity = departureCityField.getText() + ":00";
-                String arrivalCity = arrivalCityField.getText() + ":00";
-                LocalDate departureDate = departureTimeField.getValue();
-                LocalDate arrivalDate = arrivalTimeField.getValue();
+                String departureCity = departureCityField.getText();
+                String arrivalCity = arrivalCityField.getText();
+                LocalDate departureDate = departureDatePicker.getValue();
+                LocalTime departureTime = departureTimeSpinner.getValue();
+                LocalDate arrivalDate = arrivalDatePicker.getValue();
+                LocalTime arrivalTime = arrivalTimeSpinner.getValue();
                 double price = Double.parseDouble(priceField.getText());
 
-                Flight updatedFlight = new Flight(selectedFlight.getFlightId(), departureCity, arrivalCity,
-                        Timestamp.valueOf(departureDate.atStartOfDay()),
-                        Timestamp.valueOf(arrivalDate.atStartOfDay()), price);
-                return updatedFlight;
+                return new Flight(
+                        selectedFlight.getFlightId(),
+                        departureCity,
+                        arrivalCity,
+                        Timestamp.valueOf(departureDate.atTime(departureTime)),
+                        Timestamp.valueOf(arrivalDate.atTime(arrivalTime)),
+                        price
+                );
             }
             return null;
         });
@@ -244,6 +265,7 @@ public class AdminManagesFlightController {
             }
         });
     }
+
 
     private void loadFlights() {
         ObservableList<Flight> flights = FXCollections.observableArrayList();
@@ -305,7 +327,7 @@ public class AdminManagesFlightController {
     @FXML
     private void handleUpdate() {
         ObservableList<Flight> flights = FXCollections.observableArrayList();
-        String query = "SELECT * FROM flights";
+        String query = "SELECT * FROM flights WHERE active = true";
 
         try (Statement stmt = DatabaseService.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
