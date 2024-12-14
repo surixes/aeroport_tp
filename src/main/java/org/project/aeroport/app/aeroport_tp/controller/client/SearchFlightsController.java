@@ -74,6 +74,7 @@ public class SearchFlightsController {
                             rs.getDouble("price")
                     ));
                 }
+                flightsTable.setItems(flightsList);
             }
         } catch (SQLException e) {
             e.printStackTrace();
